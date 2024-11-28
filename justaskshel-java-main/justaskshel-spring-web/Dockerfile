@@ -1,19 +1,19 @@
 # Stage 1: Build Stage
-FROM eclipse-temurin:17-jdk AS build
+FROM openjdk:17-jdk-slim AS build
 WORKDIR /app
 
 # Copy only pom.xml first to leverage Docker cache
 COPY pom.xml .
-RUN ./mvnw dependency:go-offline
+RUN apt-get update && apt-get install -y maven && mvn dependency:go-offline
 
 # Copy the source code
 COPY src ./src
 
 # Build the application and clean up Maven repository
-RUN ./mvnw clean package -DskipTests && rm -rf ~/.m2/repository
+RUN mvn clean package -DskipTests && rm -rf ~/.m2/repository
 
 # Stage 2: Run Stage
-FROM eclipse-temurin:17-jdk-slim
+FROM openjdk:17-jre-slim
 WORKDIR /app
 
 # Copy the built JAR from the build stage
