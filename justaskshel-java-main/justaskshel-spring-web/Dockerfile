@@ -2,8 +2,10 @@
 FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 
-# Copy project files, including mvnw
-COPY . .  
+# Copy project files, including mvnw and pom.xml (for maven dependencies)
+COPY mvnw mvnw.cmd ./
+COPY .mvn .mvn
+COPY pom.xml ./
 
 # Give execute permission to mvnw and run the dependency offline command
 RUN chmod +x mvnw && ./mvnw dependency:go-offline
