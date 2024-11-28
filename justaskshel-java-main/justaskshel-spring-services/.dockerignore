@@ -1,7 +1,3 @@
-# Ignore Maven wrapper files
-mvnw
-mvnw.cmd
-
 # Ignore build directories
 target/
 
@@ -13,7 +9,7 @@ target/
 *.iml
 *.log
 
-# Ignore Dockerfile (optional, if you don't want it in the image)
+# Ignore other files (but not mvnw and mvnw.cmd)
 .git
 target/
 *.md
