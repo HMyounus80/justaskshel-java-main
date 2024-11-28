@@ -28,7 +28,7 @@ FROM eclipse-temurin:17-jre
 WORKDIR /app
 
 # Copy the built JAR from the build stage
-COPY --from=build /app/target/justaskshel-spring-model-0.0.1-SNAPSHOT.jar app.jar
+COPY --from=build /app/target/justaskshel-spring-model-1.0.0-SNAPSHOT.jar app.jar
 
 # Create a non-root user and switch to it
 RUN addgroup --system appgroup && adduser --system appuser --ingroup appgroup
