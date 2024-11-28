@@ -1,5 +1,5 @@
 # Stage 1: Build Stage
-FROM openjdk:17-jdk-slim AS build
+FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 
 # Copy only pom.xml first to leverage Docker cache
@@ -13,7 +13,7 @@ COPY src ./src
 RUN mvn clean package -DskipTests && rm -rf ~/.m2/repository
 
 # Stage 2: Run Stage
-FROM openjdk:17-jre-slim
+FROM eclipse-temurin:17-jre-slim
 WORKDIR /app
 
 # Copy the built JAR from the build stage
