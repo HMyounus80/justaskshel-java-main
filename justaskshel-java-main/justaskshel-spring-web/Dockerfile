@@ -7,7 +7,8 @@ COPY pom.xml .
 RUN apt-get update && apt-get install -y maven && mvn dependency:go-offline
 
 # Copy the source code
-COPY src ./src
+COPY justaskshel-spring-web/src ./src
+
 
 # Build the application and clean up Maven repository
 RUN mvn clean package -DskipTests && rm -rf ~/.m2/repository
