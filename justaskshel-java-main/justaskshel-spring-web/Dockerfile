@@ -2,10 +2,15 @@
 FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 
-# Copy project files, including mvnw and pom.xml (for maven dependencies)
-COPY mvnw mvnw.cmd ./
-COPY .mvn .mvn
-COPY pom.xml ./
+# # Copy project files, including mvnw and pom.xml (for maven dependencies)
+# COPY mvnw mvnw.cmd ./
+# COPY .mvn .mvn
+# COPY pom.xml ./
+
+COPY justaskshel-spring-web/mvnw ./mvnw
+COPY justaskshel-spring-web/mvnw.cmd ./mvnw.cmd
+COPY justaskshel-spring-web/.mvn ./.mvn
+COPY justaskshel-spring-web/pom.xml ./
 
 # Give execute permission to mvnw and run the dependency offline command
 RUN chmod +x mvnw && ./mvnw dependency:go-offline
