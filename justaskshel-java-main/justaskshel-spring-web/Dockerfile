@@ -2,9 +2,11 @@
 FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 
-# Copy only pom.xml first to leverage Docker cache
-COPY pom.xml .
-RUN ./mvnw dependency:go-offline
+# Copy project files, including mvnw
+COPY . .  
+
+# Give execute permission to mvnw and run the dependency offline command
+RUN chmod +x mvnw && ./mvnw dependency:go-offline
 
 # Copy the source code
 COPY justaskshel-spring-web/src ./src
