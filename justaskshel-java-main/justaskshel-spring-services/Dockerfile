@@ -4,7 +4,7 @@ WORKDIR /app
 
 # Copy only pom.xml first to leverage Docker cache
 COPY pom.xml .
-RUN apt-get update && apt-get install -y maven && mvn dependency:go-offline
+RUN ./mvnw dependency:go-offline
 
 # Copy the source code
 COPY justaskshel-spring-services/src ./src
