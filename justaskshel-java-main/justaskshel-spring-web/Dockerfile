@@ -2,6 +2,10 @@
 FROM eclipse-temurin:17-jdk AS build
 WORKDIR /app
 
+
+# Install Maven
+RUN apt-get update && apt-get install -y maven
+
 # # Copy project files, including mvnw and pom.xml (for maven dependencies)
 # COPY mvnw mvnw.cmd ./
 # COPY .mvn .mvn
