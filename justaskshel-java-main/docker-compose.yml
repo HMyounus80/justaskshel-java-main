@@ -31,6 +31,15 @@ services:
     depends_on:
       - justaskshel-spring-model
       - justaskshel-spring-web
+    command:
+      [
+        "./wait-for-it.sh",
+        "justaskshel-spring-web:8080",
+        "--",
+        "java",
+        "-jar",
+        "/app.jar",
+      ]
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
       interval: 30s
