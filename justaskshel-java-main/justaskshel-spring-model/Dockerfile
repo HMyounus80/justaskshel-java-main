@@ -13,7 +13,7 @@ COPY src ./src
 RUN ./mvnw clean package -DskipTests && rm -rf ~/.m2/repository
 
 # Stage 2: Run Stage
-FROM eclipse-temurin:17-jre-slim
+FROM eclipse-temurin:17-jdk-slim 
 WORKDIR /app
 
 # Copy the built JAR from the build stage
