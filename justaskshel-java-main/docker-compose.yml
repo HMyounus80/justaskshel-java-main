@@ -1,0 +1,63 @@
+version: "3.8"
+
+services:
+  # justaskshel-spring-model (Service-a)
+  justaskshel-spring-model:
+    build:
+      context: .
+      dockerfile: justaskshel-spring-model/Dockerfile
+    ports:
+      - "8081:8081"
+    networks:
+      - justaskshel-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8081/actuator/health"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 5s
+
+  # justaskshel-spring-service (Service-b)
+  justaskshel-spring-service:
+    build:
+      context: .
+      dockerfile: justaskshel-spring-service/Dockerfile
+    ports:
+      - "8082:8082"
+    networks:
+      - justaskshel-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    depends_on:
+      - justaskshel-spring-model
+      - justaskshel-spring-web
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8082/actuator/health"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 5s
+
+  # justaskshel-spring-web (Service-c)
+  justaskshel-spring-web:
+    build:
+      context: .
+      dockerfile: justaskshel-spring-web/Dockerfile
+    ports:
+      - "8080:8080"
+    networks:
+      - justaskshel-network
+    environment:
+      - SPRING_PROFILES_ACTIVE=prod
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      retries: 3
+      start_period: 10s
+      timeout: 5s
+
+networks:
+  justaskshel-network:
+    driver: bridge

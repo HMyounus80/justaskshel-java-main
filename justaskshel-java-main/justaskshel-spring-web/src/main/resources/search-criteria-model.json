@@ -1,0 +1,29 @@
+{
+  "isLifeInsuranceRequest": true,
+  "subCategoryFilter": [
+    "string"
+  ],
+  "quoteCriteria": {
+    "quoteSearchId": 0,
+    "coverage": 0,
+    "coverageAmount": 1000000,
+    "state": "FL",
+    "zipCode": "33073",
+    "county": "Broward",
+    "applicant": {
+      "dateOfBirth": "1999-03-17",
+      "gender": "M",
+      "healthClass": "good",
+      "tobacco": true,
+      "heightInInches": 69,
+      "weight": 175,
+      "ignore": true
+    },
+    "paymentMode": "string",
+    "effectiveDate": "2024-03-17",
+    "quoteSource": "string",
+    "termLength": 0,
+    "includeWaiverPremium": true,
+    "multiTermQuote": true
+  }
+}

@@ -1,0 +1,27 @@
+{
+    "face_amount": 1000000,
+    "state": "FL",
+    "county": "Broward",
+
+    "date_of_birth": "1999-03-17",
+    "current_age": 25,
+    "nearest_age": 25,
+    "gender": "Male",
+    "tobacco": false,
+
+    "adb_rider": true,
+    "wop_rider": true,
+    "child_rider_units": 1,
+    "flat_extra": 0,
+
+    "carrier_ids": ["140", "1621", "1806", "36", "163", "1474", "186", "1500", "1505", "185", "1675", "1815", "49", "111", "32", "106", "138", "1594", "176", "139"],
+    "product_types": ["1 Year Term", "5 Year Term", "10 Year Term", "15 Year Term", "20 Year Term"],
+
+    "_health_categories": ["Standard"],
+
+    "table_rates": ["Table A", "Table B", "Table C"],
+
+    "agent[name]": "Sheldon Wright",
+    "agent[email]": "ppsfinancing@gmail.com",
+    "agent[phone_number]": "954-646-6602"    
+}

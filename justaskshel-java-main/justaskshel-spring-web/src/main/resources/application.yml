@@ -1,0 +1,15 @@
+## https://www.geeksforgeeks.org/api-composition-and-aggregation-with-spring-cloud-gateway-in-java-microservices/
+
+server:
+  port: 8080
+
+spring:
+#  main:
+#    web-application-type: reactive
+  application:
+    name: JustAskShel Spring App
+    
+logging:
+  level:
+    root: INFO
+#    org.springframework.cloud.gateway: DEBUG
